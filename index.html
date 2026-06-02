@@ -10,15 +10,17 @@
   <link rel="stylesheet" href="styles.css" />
    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-2">
         <div class="container">
 
             <!-- Logo -->
             <a class="navbar-brand" href="#home">
-                <img src="images/TUW.png" alt="Logo" width="150">
+                <img src="images/TUW3.png" alt="Logo" width="200">
             </a>
 
             <!-- Mobile Toggle -->
@@ -34,7 +36,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
 
                     <li class="nav-item">
@@ -64,7 +66,7 @@
         <p class="hero-copy">Specialising in quartz, granite, marble, porcelain and Dekton, we support multi-plot projects with competitive pricing, project focus and a single point of contact from quote to installation.</p>
         <div class="hero-actions">
           <a class="btn btn-secondary" href="#contact">Request a Quote</a>
-          <a class="btn btn-secondary" href="tel:+441234567890">Call Now</a>
+          <a class="btn btn-secondary" href="tel:+447359503486">Call Now</a>
         </div>
       </div>
                 </div>
@@ -137,34 +139,8 @@
       
     </section>
 
-    <section id="about" class="section about-section">
-      <div class="grid-2 about-grid">
-        <div>
-          <h2>About Ultimate Worktop</h2>
-          <p>The Ultimate Worktop supplies quartz, granite, marble, porcelain, and Dekton worktops for
-            residential properties and multi-plot developments. We understand how the building trade
-            works and focus on keeping projects on track, meeting deadlines, and helping clients stay
-            within budget. From material supply to templating and installation, I provide a
-            straightforward and reliable service for builders, developers, and homeowners.
-          </p>
-          <p>Every project is managed directly by the business owner, from first enquiry through to installation. 
-            That means one contact, clear updates and a better experience for builders, developers and busy homeowners.</p>
-        </div>
-        <div class="value-block">
-          <h3>Why clients choose us</h3>
-          <ul class="why-list">
-            <li>Responsiveness on multi-kitchen and multi-plot projects</li>
-            <li>Fair, competitive pricing and volume discounts</li>
-            <li>No middlemen, direct communication</li>
-            <li>Reliable deadlines and smooth coordination</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
     <section id="contact" class="section">
-      <h2>Contact & quote request</h2>
-      <p>Complete the form or get in touch directly to discuss your upcoming worktop requirements.</p>
+      <h2>Get in touch</h2>
       <div class="contact-panel">
         <div class="contact-card">
           <h3>Get a quote</h3>
@@ -188,41 +164,36 @@
             <div class="form-grid">
               <label>
                 Number of kitchens
-                <input type="text" name="kitchens" placeholder="e.g. 1, 2 or 5+" required />
+                <input type="text" name="kitchens" placeholder="e.g. 1, 2 or 5+" />
               </label>
               <label>
-                Preferred material
-                <select name="material" required>
-                  <option value="">Select material</option>
-                  <option>Quartz</option>
-                  <option>Granite</option>
-                  <option>Marble</option>
-                  <option>Porcelain</option>
-                  <option>Dekton</option>
-                </select>
+                Post code
+                <input type="text" name="postcode" placeholder="Project location" />
+                              
               </label>
               <label class="wide">
                 Project details
-                <textarea name="details" placeholder="Describe the project, site location and timescale" required></textarea>
+                <textarea name="details" placeholder="Describe the project and timescale"></textarea>
               </label>
             </div>
             
-            <button type="submit" class="btn btn-primary btn-fit">Submit enquiry</button>
+            <button type="submit" class="btn btn-primary btn-fit">Submit</button>
           </form>
         </div>
 
         <div class="contact-card">
           <h3>Contact details</h3>
           <ul class="contact-list">
-            <li><strong>Phone:</strong> <a href="tel:+44735950348">+44 7359 503486</a></li>
-            <li><strong>WhatsApp:</strong> <a href="https://wa.me/447359503486">Message us on WhatsApp</a></li>
+            <li><strong>Phone:</strong> <a href="tel:+447359503486">+44 7359 503486</a></li>
+            
             <li><strong>Email:</strong> <a href="mailto:info@ultimateworktop.co.uk">info@ultimateworktop.co.uk</a></li>
             <li><strong>Service area:</strong> South East England and nearby regions</li>
           </ul>
           <div class="social">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">LinkedIn</a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://wa.me/447359503486" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
       </div>
