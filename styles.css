@@ -253,6 +253,9 @@ nav a:hover { color: var(--gold); }
   box-shadow: 0 4px 16px rgba(17, 17, 17, 0.04);
   transition: all 0.3s ease;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .contact-card:hover {
   border-color: var(--gold);
@@ -264,6 +267,55 @@ nav a:hover { color: var(--gold); }
 .contact-list strong { color: var(--text); font-weight: 700; }
 .contact-list a { color: var(--accent); font-weight: 600; transition: all 0.2s ease; }
 .contact-list a:hover { color: var(--accent-soft); }
+
+.map-container {
+  flex-grow: 1;
+  margin-top: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.map-container iframe {
+  border-radius: 12px;
+}
+
+.testimonials-grid { display: grid; gap: 28px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 40px; text-align: center; }
+.testimonial-card { 
+  background: linear-gradient(135deg, var(--surface) 0%, #fafaf8 100%);
+  border: 1px solid var(--border); 
+  border-radius: 16px; 
+  padding: 32px; 
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(17, 17, 17, 0.04);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.testimonial-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 12px 32px rgba(17, 17, 17, 0.08);
+  transform: translateY(-4px);
+}
+.testimonial-content { 
+  flex-grow: 1;
+  margin-bottom: 20px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.testimonial-author { margin-top: auto; }
+.testimonial-author strong { 
+  display: block; 
+  color: var(--text); 
+  font-weight: 700; 
+  margin-bottom: 4px;
+  color: #555555;
+}
+.testimonial-author p { 
+  margin: 0; 
+  font-size: 0.9rem; 
+  color: var(--muted);
+}
 
 
 form { display: grid; gap: 20px; }
@@ -380,7 +432,10 @@ footer div:first-child { font-weight: 600; color: var(--text); }
     margin-top: 16px;
   }
 }
-@media (max-width: 840px) { .grid-3 { grid-template-columns: 1fr; } }
+@media (max-width: 840px) { 
+  .grid-3 { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
 @media (max-width: 640px) {
   .page { padding: 24px 16px 48px; }
   .hero { padding-top: 40px; }
