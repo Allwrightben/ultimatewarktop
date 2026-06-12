@@ -65,14 +65,10 @@ nav a:hover { color: var(--gold); }
 .hero-label { text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.9rem; margin: 0 0 18px; color: var(--gold); text-align: center; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 32px; justify-content: center; }
 .btn { border: 1px solid transparent; padding: 14px 22px; border-radius: 999px; font-weight: 600; cursor: pointer; transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease; }
-.btn-primary { background: var(--gold); color: #333; }
 .btn-secondary { background: transparent; border-color: var(--gold); color: var(--gold); }
 .btn:hover { transform: translateY(-1px); }
 .btn-fit { width: fit-content; }
 
-.quotebutton {
-  background-color: grey !important;
-}
 
 .hero-grid-wrapper { 
   background-color: #f8f9fa;
@@ -319,7 +315,7 @@ nav a:hover { color: var(--gold); }
 
 
 form { display: grid; gap: 20px; }
-label { display: grid; gap: 10px; font-weight: 600; font-size: 0.95rem; text-align: center; }
+label { display: grid; gap: 10px; font-weight: 600; font-size: 0.95rem; text-align: left; }
 input, select, textarea { 
   width: 100%; 
   border: 1.5px solid var(--border); 
@@ -400,7 +396,7 @@ footer div:first-child { font-weight: 600; color: var(--text); }
   border-radius: 999px; 
   background: linear-gradient(135deg, var(--accent), var(--accent-soft));
   color: #fff; 
-  border: none; 
+  border: 1px solid var(--gold); 
   font-weight: 600; 
   cursor: pointer;
   transition: all 0.3s ease;
