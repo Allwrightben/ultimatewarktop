@@ -44,6 +44,10 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" href="slabs.html">Slabs</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
@@ -214,6 +218,26 @@
       const submitButton = event.target.querySelector('button[type="submit"]');
       submitButton.textContent = 'Sending…';
       submitButton.disabled = true;
+    });
+
+    // Check if user came from slabs enquiry
+    window.addEventListener('DOMContentLoaded', () => {
+      const enquiredSlab = localStorage.getItem('enquired_slab');
+      if (enquiredSlab) {
+        const detailsField = document.querySelector('textarea[name="details"]');
+        if (detailsField) {
+          detailsField.value = `Hi, I am interested in getting a quote for the ${enquiredSlab} slab. Please provide more information.`;
+          localStorage.removeItem('enquired_slab');
+          
+          // Smooth scroll to contact section
+          setTimeout(() => {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+              contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 100);
+        }
+      }
     });
   </script>
 </body>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Stone Slabs | The Ultimate Worktop</title>
+  <link rel="icon" href="images/Artboard.png" type="image/png"/>
+  <meta name="description" content="Browse our premium collection of Quartz, Granite, Marble, and Porcelain slabs. Filter by style or search for your perfect worktop material." />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-2">
+      <div class="container">
+          <!-- Logo -->
+          <a class="navbar-brand" href="index.html">
+              <img src="images/TUWdark.png" alt="Logo" width="200">
+          </a>
+
+          <!-- Mobile Toggle -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Nav Links -->
+          <div class="collapse navbar-collapse" id="mainNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="about.html">About/Testimonials</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="services.html">Services</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" href="slabs.html">Slabs</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="index.html#contact">Contact</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <div class="page">
+    <!-- HERO HEADER -->
+    <section class="hero text-center py-5">
+      <div class="hero-headline">
+        <p class="hero-label">Premium Stone Catalog</p>
+        <h1>Our Slab Collection</h1>
+        <p class="hero-copy">Explore our carefully curated range of high-quality quartz, granite, marble, and porcelain slabs. Perfect for kitchen worktops, custom islands, splashbacks, and vanities.</p>
+      </div>
+    </section>
+
+    <!-- CONTROLS SECTION (SEARCH & FILTERS) -->
+    <section class="controls-section mb-5">
+      <div class="row g-3 justify-content-between align-items-center">
+        <!-- Category Filters -->
+        <div class="col-12 col-md-8">
+          <div class="filter-group d-flex flex-wrap gap-2">
+            <button class="btn-filter active" data-filter="all">All Materials</button>
+            <button class="btn-filter" data-filter="marble-look">Marble Look</button>
+            <button class="btn-filter" data-filter="granite-quartzite">Granite & Quartzite</button>
+            <button class="btn-filter" data-filter="sparkly">Sparkly</button>
+            <button class="btn-filter" data-filter="textured-unique">Textured & Unique</button>
+          </div>
+        </div>
+        <!-- Search Input -->
+        <div class="col-12 col-md-4">
+          <div class="search-box position-relative">
+            <input type="text" id="slabSearch" class="form-control" placeholder="Search slabs by name..." aria-label="Search slabs">
+            <i class="fa-solid fa-magnifying-glass search-icon text-muted position-absolute" style="right: 15px; top: 50%; transform: translateY(-50%);"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLABS GRID -->
+    <section class="slabs-grid-section">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="slabsGrid">
+        <!-- Slab cards will be dynamically loaded via JS -->
+      </div>
+      <div class="text-center py-5 d-none" id="noResults">
+        <i class="fa-solid fa-circle-question fa-3x text-muted mb-3"></i>
+        <h3>No slabs found matching your search.</h3>
+        <p class="text-muted">Try choosing a different material category or searching for another term.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- SLAB DETAIL MODAL -->
+  <div class="modal fade" id="slabModal" tabindex="-1" aria-labelledby="slabModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content custom-modal-content">
+        <div class="modal-header border-0 pb-0">
+          <h2 class="modal-title h4 text-dark font-weight-bold" id="slabModalLabel">Slab Details</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-3">
+          <div class="row g-4">
+            <!-- Large Image View -->
+            <div class="col-12 col-md-6">
+              <div class="modal-image-container">
+                <img src="" id="modalSlabImage" alt="" class="img-fluid rounded modal-slab-img">
+              </div>
+            </div>
+            <!-- Details / Specification -->
+            <div class="col-12 col-md-6 d-flex flex-column justify-content-between">
+              <div>
+                <h3 id="modalSlabName" class="h3 mb-2 text-dark font-weight-bold"></h3>
+                <span id="modalSlabCategory" class="badge bg-secondary mb-3"></span>
+                <p id="modalSlabDesc" class="text-muted mb-4"></p>
+                
+                <h4 class="h6 text-uppercase fw-bold text-muted mb-2">Recommended Applications</h4>
+                <p id="modalSlabApps" class="small mb-4 text-dark"></p>
+                
+                <h4 class="h6 text-uppercase fw-bold text-muted mb-2">Stone Characteristics</h4>
+                <p id="modalSlabFeatures" class="small mb-4 text-muted"></p>
+              </div>
+              <div class="mt-auto pt-3">
+                <button id="modalEnquiryBtn" class="btn-primary w-100">Enquire About This Slab</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <h4>The Ultimate Worktop</h4>
+    <div>Quartz • Granite • Marble • Porcelain • Dekton</div>
+    <div>©️ 2025 The Ultimate Worktop. All Rights Reserved.</div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- DATA & LOGIC JAVASCRIPT -->
+  <script>
+    // Define the list of slabs matching the files in the images/slabs folder
+    const slabs = [
+      {
+        id: "arabecatobrown",
+        name: "Arabescato Brown",
+        filename: "arabecatobrown.jpeg",
+        category: "marble-look",
+        categoryLabel: "Marble Look",
+        description: "A beautiful marble-patterned quartz featuring bold, flowing veins of warm brown, bronze, and charcoal grey on a creamy backdrop. Perfect for warm-toned contemporary kitchens.",
+        applications: "Kitchen worktops, waterfall islands, vanity tops, splashbacks.",
+        features: "Warm tones, dramatic veining, polished finish, stain-resistant quartz."
+      },
+      {
+        id: "arabescato",
+        name: "Arabescato",
+        filename: "arabescato.jpeg",
+        category: "marble-look",
+        categoryLabel: "Marble Look",
+        description: "A timeless classic design with bold, dusty grey veining tracing sweeping patterns across a clean white surface. Offers the organic look of natural marble with the strength of quartz.",
+        applications: "Kitchen islands, worktops, splashbacks, bathroom walls.",
+        features: "High contrast veining, classic white base, elegant aesthetics."
+      },
+      {
+        id: "calacattabronze",
+        name: "Calacatta Bronze",
+        filename: "calacattabronze.jpeg",
+        category: "marble-look",
+        categoryLabel: "Marble Look",
+        description: "A luxurious quartz featuring thick, statement veins of bronze, honey gold, and soft grey. Adds immense character and warmth to modern kitchen settings.",
+        applications: "Statement kitchen islands, reception desks, fireplace surrounds, worktops.",
+        features: "Rich bronze and gold tones, bold veining, highly reflective surface."
+      },
+      {
+        id: "calacattaburgini",
+        name: "Calacatta Burgini",
+        filename: "calacattaburgini.jpeg",
+        category: "marble-look",
+        categoryLabel: "Marble Look",
+        description: "A striking, luxury-tier quartz with broad gold and copper-hued veining highlighted by subtle grey accents. Creates a stunning centerpiece for any high-end kitchen layout.",
+        applications: "Islands with waterfall edges, matching splashbacks, master bath vanities.",
+        features: "Warm gold veining, premium marble appearance, high durability."
+      },
+      {
+        id: "calacattaclassic",
+        name: "Calacatta Classic",
+        filename: "calacattaclassic.jpeg",
+        category: "marble-look",
+        categoryLabel: "Marble Look",
+        description: "The gold standard of marble-effect quartz. Features large, elegant grey veins on an ultra-white background. It offers a clean, neutral, yet distinct designer look.",
+        applications: "Modern kitchen countertops, luxury bathrooms, wall cladding.",
+        features: "Bright white base, classic grey patterns, low-maintenance."
+      },
+      {
+        id: "calacattadarkgrey",
+        name: "Calacatta Dark Grey",
+        filename: "calacattadarkgrey.jpeg",
+        category: "marble-look",
+        categoryLabel: "Marble Look",
+        description: "Features charcoal and dark slate grey veining sweeping across a soft greyish-white canvas. Ideal for high-contrast kitchens or modern industrial designs.",
+        applications: "Kitchen countertops, commercial bars, splashbacks.",
+        features: "High contrast grey tones, robust veining, sophisticated appeal."
+      },
+      {
+        id: "calacattagolden",
+        name: "Calacatta Golden",
+        filename: "calacattagolden.jpeg",
+        category: "marble-look",
+        categoryLabel: "Marble Look",
+        description: "A gorgeous design emphasizing soft golden-grey veining with delicate amber undertones. Offers a welcoming, bright feel suitable for traditional and modern homes alike.",
+        applications: "Kitchen worktops, dining tables, vanity units.",
+        features: "Subtle gold & amber tones, soft veining structure, polished finish."
+      },
+      {
+        id: "calacattalunatic",
+        name: "Calacatta Lunatic",
+        filename: "calacattalunatic.jpeg",
+        category: "marble-look",
+        categoryLabel: "Marble Look",
+        description: "A bold, dramatic stone surface showcasing chaotic, sweeping networks of deep grey and slate veins. Creates an eye-catching, artistic statement in minimalist spaces.",
+        applications: "Feature walls, statement islands, modern bathrooms.",
+        features: "High drama veining, modern abstract patterns, highly durable."
+      },
+      {
+        id: "carraracloud",
+        name: "Carrara Cloud",
+        filename: "carraracloud.jpeg",
+        category: "marble-look",
+        categoryLabel: "Marble Look",
+        description: "A soft, delicate marble design featuring fine, misty grey clouds and micro-veining on a cool white background. Subdued and incredibly versatile.",
+        applications: "All-round kitchen worktops, utility rooms, bathroom vanity tops.",
+        features: "Soft misty patterns, neutral aesthetic, highly versatile."
+      },
+      {
+        id: "greysparkly",
+        name: "Grey Sparkly",
+        filename: "greysparkly.jpeg",
+        category: "sparkly",
+        categoryLabel: "Sparkly & Textured",
+        description: "A dark silver-grey quartz embedded with thousands of tiny mirror flecks that catch the light from every angle. Provides a vibrant, glamorous surface.",
+        applications: "Kitchen worktops, modern apartments, breakfast bars.",
+        features: "Light-reflecting mirror flecks, rich grey tone, uniform texture."
+      },
+      {
+        id: "icebranco",
+        name: "Ice Branco",
+        filename: "icebranco.jpeg",
+        category: "textured-unique",
+        categoryLabel: "Textured & Unique",
+        description: "A brilliant, frosty ice-white base interspersed with delicate crystalline patterns and glass-like particles. Lends an open, spacious, and icy clean look to the kitchen.",
+        applications: "Small kitchens, utility areas, light-filled modern spaces.",
+        features: "Crystalline texture, bright light reflection, highly hygienic."
+      },
+      {
+        id: "mysticgold",
+        name: "Mystic Gold",
+        filename: "mysticgold.jpeg",
+        category: "textured-unique",
+        categoryLabel: "Textured & Unique",
+        description: "An extraordinary stone boasting deep amber, gold, and dark grey swirling patterns. It resembles a nebula, making it a spectacular luxury design statement.",
+        applications: "Luxury bar counters, dining tables, custom reception desks.",
+        features: "Exotic appearance, gold and dark swirl patterns, high visual impact."
+      },
+      {
+        id: "pistachio",
+        name: "Pistachio",
+        filename: "pistachio.jpeg",
+        category: "textured-unique",
+        categoryLabel: "Textured & Unique",
+        description: "An incredibly rare, natural-toned stone surface presenting earthy sage, pistachio green, and cream waves. Perfect for biophilic and organic design styles.",
+        applications: "Designer kitchens, bespoke vanity tops, fireplace surrounds.",
+        features: "Earthy green/sage hues, wave pattern, organic feel."
+      },
+      {
+        id: "sandgate",
+        name: "Sandgate",
+        filename: "sandgate.jpeg",
+        category: "textured-unique",
+        categoryLabel: "Textured & Unique",
+        description: "A textured surface reminiscent of natural sandstone, featuring soft beige, warm grey, and tan particles. Offers a rustic, warm, and highly durable finish.",
+        applications: "Country kitchens, utility rooms, heavily used workspaces.",
+        features: "Earthy tones, grainy texture, scratch & stain resistant."
+      },
+      {
+        id: "spidergold",
+        name: "Spider Gold",
+        filename: "spidergold.jpeg",
+        category: "marble-look",
+        categoryLabel: "Marble Look",
+        description: "An intricate design featuring thin, web-like veins of bright gold and rust intersecting over a crystalline white surface. Elegant, bold, and luxurious.",
+        applications: "Splashbacks, feature island columns, vanity surrounds.",
+        features: "Spiderweb gold veining, white crystal base, polished look."
+      },
+      {
+        id: "tajmahal",
+        name: "Taj Mahal",
+        filename: "tajmahal.jpeg",
+        category: "granite-quartzite",
+        categoryLabel: "Granite & Quartzite",
+        description: "Inspired by the sought-after natural quartzite, Taj Mahal quartz exhibits soft cream, beige, and light gold swirls with incredible depth. A premium, high-class selection.",
+        applications: "Traditional and modern kitchens, master bathrooms, dining surfaces.",
+        features: "Luxurious quartzite look, cream and gold tone, extremely durable."
+      },
+      {
+        id: "whitesparkly",
+        name: "White Sparkly",
+        filename: "whitesparkly.jpeg",
+        category: "sparkly",
+        categoryLabel: "Sparkly & Textured",
+        description: "A popular choice featuring a pristine white quartz base studded with subtle mirror pieces that reflect light, giving the workspace a clean, shimmering feel.",
+        applications: "Kitchen countertops, splashbacks, modern small spaces.",
+        features: "Sparkling mirror particles, pure white base, easy clean."
+      },
+      {
+        id: "winterrock",
+        name: "Winter Rock",
+        filename: "winterrock.jpeg",
+        category: "granite-quartzite",
+        categoryLabel: "Granite & Quartzite",
+        description: "A textured, granite-like material with chunks of grey, white, and obsidian flecks. Evokes the rugged beauty of mountain stones and stands up to heavy daily use.",
+        applications: "Heavy-duty kitchens, commercial bars, outdoor kitchen surfaces.",
+        features: "Coarse granite texture, dark and light contrast, high impact resistance."
+      }
+    ];
+
+    const slabsGrid = document.getElementById("slabsGrid");
+    const noResults = document.getElementById("noResults");
+    const searchInput = document.getElementById("slabSearch");
+    const filterButtons = document.querySelectorAll(".btn-filter");
+
+    let currentFilter = "all";
+    let currentSearch = "";
+
+    // Render slabs to the page
+    function renderSlabs() {
+      // Filter list
+      const filtered = slabs.filter(slab => {
+        const matchesCategory = currentFilter === "all" || slab.category === currentFilter;
+        const matchesSearch = slab.name.toLowerCase().includes(currentSearch.toLowerCase()) ||
+                              slab.description.toLowerCase().includes(currentSearch.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+
+      // Clear grid
+      slabsGrid.innerHTML = "";
+
+      if (filtered.length === 0) {
+        noResults.classList.remove("d-none");
+      } else {
+        noResults.classList.add("d-none");
+        filtered.forEach(slab => {
+          const cardHtml = `
+            <div class="col slab-card-wrapper" data-category="${slab.category}">
+              <div class="card slab-card h-100" onclick="openSlabModal('${slab.id}')">
+                <div class="slab-image-wrapper">
+                  <img src="images/slabs/${slab.filename}" class="card-img-top" alt="${slab.name}" loading="lazy">
+                  <div class="slab-overlay">
+                    <span class="btn btn-secondary btn-sm px-3 rounded-pill text-white border-white">View Details</span>
+                  </div>
+                </div>
+                <div class="card-body d-flex flex-column justify-content-between p-3">
+                  <div>
+                    <h3 class="card-title h5 text-dark mb-1 font-weight-bold" style="font-size: 1.1rem; color: #111 !important;">${slab.name}</h3>
+                    <span class="slab-badge text-muted small">${slab.categoryLabel}</span>
+                  </div>
+                  <div class="mt-2 text-end">
+                    <span class="text-gold" style="font-size: 1.1rem;"><i class="fa-solid fa-circle-info"></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          slabsGrid.insertAdjacentHTML("beforeend", cardHtml);
+        });
+      }
+    }
+
+    // Modal Control
+    const modalElement = document.getElementById('slabModal');
+    const bootstrapModal = new bootstrap.Modal(modalElement);
+
+    window.openSlabModal = function(slabId) {
+      const slab = slabs.find(s => s.id === slabId);
+      if (!slab) return;
+
+      document.getElementById("modalSlabImage").src = `images/slabs/${slab.filename}`;
+      document.getElementById("modalSlabImage").alt = slab.name;
+      document.getElementById("modalSlabName").textContent = slab.name;
+      document.getElementById("modalSlabCategory").textContent = slab.categoryLabel;
+      document.getElementById("modalSlabDesc").textContent = slab.description;
+      document.getElementById("modalSlabApps").textContent = slab.applications;
+      document.getElementById("modalSlabFeatures").textContent = slab.features;
+
+      // Set up Enquiry button callback
+      const enquiryBtn = document.getElementById("modalEnquiryBtn");
+      enquiryBtn.onclick = function() {
+        // Store selected slab in localStorage to auto-populate contact details
+        localStorage.setItem("enquired_slab", slab.name);
+        bootstrapModal.hide();
+        // Redirect to contact form on homepage
+        window.location.href = "index.html#contact";
+      };
+
+      bootstrapModal.show();
+    }
+
+    // Event Listeners
+    // Search
+    searchInput.addEventListener("input", (e) => {
+      currentSearch = e.target.value;
+      renderSlabs();
+    });
+
+    // Category buttons
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        // Remove active class from all
+        filterButtons.forEach(b => b.classList.remove("active"));
+        // Add to clicked
+        btn.classList.add("active");
+        
+        currentFilter = btn.getAttribute("data-filter");
+        renderSlabs();
+      });
+    });
+
+    // Initial render
+    renderSlabs();
+  </script>
+</body>
+</html>
