@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Stone Slabs | The Ultimate Worktop</title>
-  <link rel="icon" href="images/Artboard.png" type="image/png"/>
-  <meta name="description" content="Browse our premium collection of Quartz, Granite, Marble, and Porcelain slabs. Filter by style or search for your perfect worktop material." />
+  <link rel="icon" href="images/Artboard.png" type="image/png" />
+  <meta name="description"
+    content="Browse our premium collection of Quartz, Granite, Marble, and Porcelain slabs. Filter by style or search for your perfect worktop material." />
   <link rel="stylesheet" href="styles.css" />
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light py-2">
-      <div class="container">
-          <!-- Logo -->
-          <a class="navbar-brand" href="index.html">
-              <img src="images/TUWdark.png" alt="Logo" width="200">
-          </a>
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand" href="index.html">
+        <img src="images/TUWdark.png" alt="Logo" width="200">
+      </a>
 
-          <!-- Mobile Toggle -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-              <span class="navbar-toggler-icon"></span>
-          </button>
+      <!-- Mobile Toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-          <!-- Nav Links -->
-          <div class="collapse navbar-collapse" id="mainNav">
-              <ul class="navbar-nav ms-auto">
-                  <li class="nav-item">
-                      <a class="nav-link" href="index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="about.html">About/Testimonials</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="services.html">Services</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link active" href="slabs.html">Slabs</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="index.html#contact">Contact</a>
-                  </li>
-              </ul>
-          </div>
+      <!-- Nav Links -->
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About/Testimonials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="slabs.html">Stock</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contact</a>
+          </li>
+        </ul>
       </div>
+    </div>
   </nav>
 
   <!-- MAIN CONTENT CONTAINER -->
@@ -56,7 +59,8 @@
       <div class="hero-headline">
         <p class="hero-label">Premium Stone Catalog</p>
         <h1>Our Slab Collection</h1>
-        <p class="hero-copy">Explore our carefully curated range of high-quality quartz, granite, marble, and porcelain slabs. Perfect for kitchen worktops, custom islands, splashbacks, and vanities.</p>
+        <p class="hero-copy">Explore our carefully curated range of high-quality quartz, granite, marble, and porcelain
+          slabs. Perfect for kitchen worktops, custom islands, splashbacks, and vanities.</p>
       </div>
     </section>
 
@@ -76,8 +80,10 @@
         <!-- Search Input -->
         <div class="col-12 col-md-4">
           <div class="search-box position-relative">
-            <input type="text" id="slabSearch" class="form-control" placeholder="Search slabs by name..." aria-label="Search slabs">
-            <i class="fa-solid fa-magnifying-glass search-icon text-muted position-absolute" style="right: 15px; top: 50%; transform: translateY(-50%);"></i>
+            <input type="text" id="slabSearch" class="form-control" placeholder="Search slabs by name..."
+              aria-label="Search slabs">
+            <i class="fa-solid fa-magnifying-glass search-icon text-muted position-absolute"
+              style="right: 15px; top: 50%; transform: translateY(-50%);"></i>
           </div>
         </div>
       </div>
@@ -118,10 +124,10 @@
                 <h3 id="modalSlabName" class="h3 mb-2 text-dark font-weight-bold"></h3>
                 <span id="modalSlabCategory" class="badge bg-secondary mb-3"></span>
                 <p id="modalSlabDesc" class="text-muted mb-4"></p>
-                
+
                 <h4 class="h6 text-uppercase fw-bold text-muted mb-2">Recommended Applications</h4>
                 <p id="modalSlabApps" class="small mb-4 text-dark"></p>
-                
+
                 <h4 class="h6 text-uppercase fw-bold text-muted mb-2">Stone Characteristics</h4>
                 <p id="modalSlabFeatures" class="small mb-4 text-muted"></p>
               </div>
@@ -345,7 +351,7 @@
       const filtered = slabs.filter(slab => {
         const matchesCategory = currentFilter === "all" || slab.category === currentFilter;
         const matchesSearch = slab.name.toLowerCase().includes(currentSearch.toLowerCase()) ||
-                              slab.description.toLowerCase().includes(currentSearch.toLowerCase());
+          slab.description.toLowerCase().includes(currentSearch.toLowerCase());
         return matchesCategory && matchesSearch;
       });
 
@@ -387,7 +393,7 @@
     const modalElement = document.getElementById('slabModal');
     const bootstrapModal = new bootstrap.Modal(modalElement);
 
-    window.openSlabModal = function(slabId) {
+    window.openSlabModal = function (slabId) {
       const slab = slabs.find(s => s.id === slabId);
       if (!slab) return;
 
@@ -401,7 +407,7 @@
 
       // Set up Enquiry button callback
       const enquiryBtn = document.getElementById("modalEnquiryBtn");
-      enquiryBtn.onclick = function() {
+      enquiryBtn.onclick = function () {
         // Store selected slab in localStorage to auto-populate contact details
         localStorage.setItem("enquired_slab", slab.name);
         bootstrapModal.hide();
@@ -426,7 +432,7 @@
         filterButtons.forEach(b => b.classList.remove("active"));
         // Add to clicked
         btn.classList.add("active");
-        
+
         currentFilter = btn.getAttribute("data-filter");
         renderSlabs();
       });
@@ -436,4 +442,5 @@
     renderSlabs();
   </script>
 </body>
+
 </html>
