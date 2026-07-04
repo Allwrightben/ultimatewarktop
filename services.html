@@ -37,7 +37,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About/Testimonials</a>
+            <a class="nav-link" href="about.html">About</a>
           </li>
 
           <li class="nav-item">
@@ -51,6 +51,10 @@
           <li class="nav-item">
             <a class="nav-link" href="index.html#contact">Contact</a>
           </li>
+          <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+            <a class="btn btn-secondary" href="index.html#contact"
+              style="padding: 8px 20px; font-size: 0.95rem;">Request a Quote</a>
+          </li>
         </ul>
       </div>
 
@@ -60,14 +64,17 @@
   <div class="page">
 
     <section class="hero">
-      <h1>Residential, Commercial & Development Projects.</h1>
-      <p>From residential kitchens and bathroom vanity units to bars, restaurants and multi-unit developments, we
-        provide a complete worktop service for projects of all sizes.
-      </p>
+      <div class="hero-headline">
+        <h1>Worktop Solutions for Every Project.</h1>
+        <p class="hero-copy">
+          From residential kitchens and bathroom vanity units to bars, restaurants and multi-unit developments, we
+          provide premium worktops tailored to your requirements.
+        </p>
+      </div>
     </section>
 
     <section class="section">
-      <div class="gallery gallery-margin" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+      <div class="gallery2 gallery-margin" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
         <div class="gallery-item">
           <img src="images/atwork.jpg" alt="Stone fabrication - grinding and polishing in the workshop">
         </div>
@@ -109,8 +116,8 @@
         to detail at every stage helps ensure a precise fit and deliver an overall premium service.</p>
     </section>
 
-    <section class="section">
-      <a href="index.html#contact" class="btn-primary">Request a quote</a>
+    <section class="section" style="text-align: center;">
+      <a href="index.html#contact" class="btn btn-secondary btn-fit">Request a quote</a>
     </section>
   </div>
 
@@ -122,6 +129,29 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Lightbox functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightbox = document.createElement('div');
+      lightbox.className = 'lightbox';
+      document.body.appendChild(lightbox);
+      
+      const lightboxImg = document.createElement('img');
+      lightbox.appendChild(lightboxImg);
+
+      const galleryImages = document.querySelectorAll('.gallery-item img');
+      galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightbox.classList.add('active');
+        });
+      });
+
+      lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 
 </html>
