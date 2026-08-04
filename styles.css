@@ -738,10 +738,10 @@ textarea {
 }
 
 footer {
-  background-color: #f8f9fa;
+  background-color: #6c757d;
   padding: 48px 0 24px;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.9rem;
 }
 
