@@ -1281,3 +1281,63 @@ footer {
     display: none !important;
   }
 }
+
+/* ============================================================
+   REVIEW PAGE STYLING
+   ============================================================ */
+.review-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 48px 36px;
+  box-shadow: 0 10px 30px rgba(17, 17, 17, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 14px 36px rgba(17, 17, 17, 0.08);
+}
+
+.review-stars {
+  color: var(--gold);
+  font-size: 1.75rem;
+  letter-spacing: 4px;
+}
+
+.btn-google-review {
+  background-color: var(--accent);
+  color: #ffffff !important;
+  border: 2px solid var(--gold);
+  font-size: 1.1rem;
+  padding: 16px 32px;
+  border-radius: 999px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-google-review:hover,
+.btn-google-review:focus {
+  background-color: #111827;
+  color: var(--gold) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  border-color: var(--gold);
+}
+
+@media (max-width: 576px) {
+  .review-card {
+    padding: 32px 20px;
+  }
+  .btn-google-review {
+    width: 100%;
+    font-size: 1.05rem;
+    padding: 14px 20px;
+  }
+}
