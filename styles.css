@@ -729,12 +729,15 @@ textarea {
   font-size: 1.5rem;
   font-weight: 500;
   transition: all 0.2s ease;
+  text-decoration: none;
 }
 
-.social a:hover {
+.social a:hover,
+.social a:focus {
   color: var(--gold);
   border-color: var(--gold);
   transform: translateY(-4px);
+  text-decoration: none;
 }
 
 footer {
@@ -1306,29 +1309,13 @@ footer {
 }
 
 .btn-google-review {
-  background-color: var(--accent);
-  color: #ffffff !important;
-  border: 2px solid var(--gold);
-  font-size: 1.1rem;
-  padding: 16px 32px;
-  border-radius: 999px;
-  font-weight: 600;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-  transition: all 0.25s ease;
   text-decoration: none;
-}
-
-.btn-google-review:hover,
-.btn-google-review:focus {
-  background-color: #111827;
-  color: var(--gold) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-  border-color: var(--gold);
+  font-size: 1.05rem;
+  padding: 14px 28px;
 }
 
 @media (max-width: 576px) {
@@ -1337,7 +1324,7 @@ footer {
   }
   .btn-google-review {
     width: 100%;
-    font-size: 1.05rem;
+    font-size: 1rem;
     padding: 14px 20px;
   }
 }
